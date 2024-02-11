@@ -11,6 +11,7 @@ public class tictactoe implements ActionListener{
     JLabel textfield = new JLabel();
     JButton[] buttons = new JButton[9];
     boolean player1_turn;
+    JButton startAgainButton;
 
 
     tictactoe(){
@@ -33,6 +34,17 @@ public class tictactoe implements ActionListener{
         button.setLayout(new GridLayout(3,3));
         button.setBackground(new Color(150,150,150));
 
+        startAgainButton = new JButton("Start Again");
+        startAgainButton.setFont(new Font("MV Boli",Font.BOLD,40));
+        startAgainButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                resetGame();
+            }
+            
+        });
+        frame.add(startAgainButton, BorderLayout.SOUTH);
+        firstTurn();
+    
         for(int i=0;i<9;i++){
             buttons[i] = new JButton();
             button.add(buttons[i]);
@@ -120,6 +132,21 @@ public void check(){
             return;
         }
     }
+    //check for tie 
+    boolean tie = true;
+    for(JButton button : buttons){
+        if (button.getText().isEmpty()){
+            tie = false;
+            break;
+        }
+    }
+    if (tie){
+        textfield.setText("It is a tie" );
+        button.setForeground(Color.black);
+        for(int i=0;i<9;i++) {
+            buttons[i].setEnabled(false);
+        }
+    }
 }
 
 
@@ -144,6 +171,17 @@ public void owins (int x, int y, int z)
         buttons[i].setEnabled(false);
     }
     textfield.setText("O wins");
+
 }
+public void resetGame(){
+    for (int i= 0;i<9;i++){
+        buttons[i].setText("");
+        buttons[i].setEnabled(true);
+        buttons[i].setBackground(null);}
+        player1_turn = true;
+        textfield.setText("Tic-Tac-Toe");
+        firstTurn();
+    }
 }
+
 
