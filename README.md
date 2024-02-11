@@ -1,18 +1,7 @@
-## Getting Started
+This is a simple implementation of Tic-Tac-Toe game built using Java and Swing GUI Library.The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Features:
+Two players: X and O
+Player take turns making empty spaces on the grid.
+The game checks for winning combinations after each move and declares a winner.
+Option to start a new game with the "Start Again" button.
